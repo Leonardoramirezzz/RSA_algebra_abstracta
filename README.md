@@ -1,6 +1,6 @@
 # algebra-perm2a
 
-**Developers**
+**Integrantess**
 
 | Role      | Name |
 | ----------- | ----------- |
