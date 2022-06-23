@@ -1,41 +1,16 @@
-# algebra-perm2a
+# algebra abstracta - RSA
 
-**Integrantess**
+**Integrantes**
 
-| Role      | Name |
-| ----------- | ----------- |
-| Developer   | Maycol Alexander Canaveri Taco |
-| Developer   | Alberto Llamocca |
+| Leonardo Alonso Ramirez Quiroz |
+| Diego Enrique Zegarra Zenteno |
+| Rodrigo del Piero Melendez Flores |
 
-<br>
-
-**Table of Contents**
-
-- [Empezemos]()
-  - [Ejecucion](#ejecución)
-- [Ejercicios]()
-  - [Generar todo los primos de 3,4 y 5 cifras](#ejercicio-1)
-  - [Numeros primos aleatorios de 16,32 y 64 bits](#ejercicio-2)
-- [Utilitarios]()
-  - [ES_COMPUESTO](./docs/ES_COMPUESTO.md)
-  - [GEN_PRIMOS](./docs/GEN_PRIMOS.md)
-  - [MILLER_RABIN](./docs/MILLER_RABIN.md)
-  - [POW_MOD](./docs/POW_MOD.md)
-  - [RANDOMBITS](./docs/RANDOMBITS.md)
-  - [RANDOMGEN_PRIMOS](./docs/RANDOMGEN_PRIMOS.md)
-  - [RANDOMINTEGER](./docs/RANDOMINTEGER.md)
 
 <br>
 
-### Ejecución
-
-Para ejecutar el programa, porfavor correr el siguente script en la terminal.
-
-```bash
-python main.py
-```
-### Ejercicio 1
-*Generar todos los primos de 3, 4 y 5 cifras.*
+### 1:
+*Implementar RSA_KEY_GENERATOR.*
 
 El algoritmo generara numeros de 3,4 y 5 digitos, s tomara el valor de 50. Verificamos si el numero es primo con la funcion de "MILLER_RABIN" (test de primalidad) retornando True o False tomando a su vez el valor de s para la precision de la prueba.
 La funcion main() llamara a "allPrimeNumber" que contiene una lista de tres numeros indicando que imprimira todos los numeros de n digitos que tomaran cada uno de los elementos de la lista [3,4,5] cada numero que se tomara en el proceso formara parte del exponenete de 10 que se toma como limite para la variable "numero" que este se imprimira hasta que sea menor que el "exponente". 
