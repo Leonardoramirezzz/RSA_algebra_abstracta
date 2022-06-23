@@ -13,10 +13,15 @@
 *Implementar RSA_KEY_GENERATOR.*
 
 Utilizamos algoritmos implementados en anteriores sesiones como: Inversa de un número, Euclides extendido, exponenciación modular y miller rabin.
+
 El algoritmo del RSA recibe un int k, long long e y long long d.
+
 Empieza generando dos números primos (p y q) al azar y asegurándose que sean distintos.
+
 Calcula n como el producto de p y q, y phi de n.
+
 Hallamos Generar aleatoriamente e ∈ [2, n − 1], tal que gcd(e, φ(n)) = 1 (con euclides de (e,φ(n)).
+
 Hallamos d, que es el inverso de (e, φ(n)).
 
 ```c++
