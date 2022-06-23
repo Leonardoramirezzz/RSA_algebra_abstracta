@@ -12,20 +12,37 @@
 ### 1:
 *Implementar RSA_KEY_GENERATOR.*
 
-El algoritmo generara numeros de 3,4 y 5 digitos, s tomara el valor de 50. Verificamos si el numero es primo con la funcion de "MILLER_RABIN" (test de primalidad) retornando True o False tomando a su vez el valor de s para la precision de la prueba.
-La funcion main() llamara a "allPrimeNumber" que contiene una lista de tres numeros indicando que imprimira todos los numeros de n digitos que tomaran cada uno de los elementos de la lista [3,4,5] cada numero que se tomara en el proceso formara parte del exponenete de 10 que se toma como limite para la variable "numero" que este se imprimira hasta que sea menor que el "exponente". 
+Utilizamos algoritmos implementados en anteriores sesiones como: Inversa de un número, Euclides extendido, exponenciación modular y miller rabin.
+El algoritmo del RSA recibe un int k, long long e y long long d.
+Empieza generando dos números primos (p y q) al azar y asegurándose que sean distintos.
+Calcula n como el producto de p y q, y phi de n.
+Hallamos Generar aleatoriamente e ∈ [2, n − 1], tal que gcd(e, φ(n)) = 1 (con euclides de (e,φ(n)).
+Hallamos d, que es el inverso de (e, φ(n)).
 
-```py
-def allPrimeNumber():
-    listaNum = [3,4,5]
-    for i in listaNum:
-        print(f"\nNumeros primos de {i} digitos:")
-        numero = (10**(i-1))
-        while(numero <= (10**i)):
-            if MILLER_RABIN(numero,50):
-                print(numero,end="--")
-            numero += 1
-    print("\n")
+```c++
+unsigned long long RSA_KEY_GENERATOR(int k, unsigned long long& e, unsigned long long& d) {
+    //genera primos aleatorios
+    unsigned long long p = RANDOMGEN_PRIMOS(k / 2);
+    unsigned long long q = RANDOMGEN_PRIMOS(k / 2);
+    //por si son iguales se vuelve a generar q
+    while (p == q) {
+        q = RANDOMGEN_PRIMOS(k / 2);
+    }
+    //se calcula n 
+    unsigned long long n = p * q;
+    //calculamos  φ(n)= φ(p)*φ(q)=(p-1)*(q-1)
+    unsigned long long φn = (p - 1) * (q - 1);
+    int x, y;
+    //hallamos Generar aleatoriamente e ∈ [2, n − 1], tal que gcd(e, φ(n)) = 1 (con euclides de (e,φn)
+    e = 2 + rand() % φn - 1;
+    while (EuclidesExtendido(e, φn, x, y) != 1) {
+        e = 2 + rand() % φn - 1;
+    }
+    //hallamos d q es el inverso de (e, φn)
+    d = inverso(e, φn);
+    return n;
+
+}
 ```
 ```bash
 Numeros primos de 3 digitos:
