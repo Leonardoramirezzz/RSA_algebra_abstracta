@@ -57,49 +57,39 @@ unsigned long long descifrar(unsigned long long c, unsigned long long d, unsigne
 Generar una tabla con tres columnas m, c = P(m) y m' = S(c). Para las filas usar 10 valores números aleatorios distintos para m.*
 
 
-```python
-def randomPrimeNumber():
-    source = [ 
-        16, 16, 16, 16, 16, 16, 16, 16, 16, 16,
-        32, 32, 32, 32, 32, 32, 32, 32, 32, 32,
-        64, 64, 64, 64, 64, 64, 64, 64, 64, 64
-    ]
+```c++
+int main() {
+  int k;
+  cout << "Inserte valor de k: " << endl;
+  cin >> k;
+  unsigned long long e;
+  unsigned long long d;
+  unsigned long long n = RSA_KEY_GENERATOR(k, e, d);
+  cout << "n:  " << n << "  e:  " << e << "  d  " << d << endl<< endl;
+  cout << "M       " << "\t" << "C       " << "\t" << "M´" << endl;
+  for(int i=0;i<10;i++){
+      unsigned long long k=rand() % (n - 1);
+      unsigned long long cifrado = cifrar(k, e, n);
+      unsigned long long descifrado = descifrar(cifrado, d, n);
+      cout << k << "\t"<< cifrado << "\t" << descifrado << endl;
+  }
+}
 
-    for i in source:
-        prime = RANDOMGEN_PRIMOS(i)
-        print("{0}bits -> {1}".format(i, prime))
 ```
 ```bash
-randomPrimeNumber:
+Inserte valor de k: 
+5
+n:  4644779  e:  4479961  d  4538041
 
-16bits -> 33647
-16bits -> 39499
-16bits -> 59333
-16bits -> 35797
-16bits -> 46439
-16bits -> 37633
-16bits -> 47563
-16bits -> 54709
-16bits -> 36919
-16bits -> 55171
-32bits -> 2479449331
-32bits -> 3943072037
-32bits -> 3392485429
-32bits -> 2668402537
-32bits -> 4221862063
-32bits -> 3054322699
-32bits -> 3263909771
-32bits -> 4293211151
-32bits -> 3885413933
-32bits -> 2329364221
-64bits -> 12702557818905538561
-64bits -> 17605323725312372737
-64bits -> 9319588526910369793
-64bits -> 11188507237998315521
-64bits -> 13344054781187880961
-64bits -> 10122845002879154177
-64bits -> 13921347531788193793
-64bits -> 12495984492930224129
-64bits -> 13523977963399149569
-64bits -> 9622235937478082561
+M           C           M´
+804447  1016251 804447
+109872  3112222 109872
+148210  1804089 148210
+240501  75602   240501
+2059343 3813913 2059343
+1543952 4610851 1543952
+1160379 2664214 1160379
+3180034 2177321 3180034
+689670  994227  689670
+3978786 3276525 3978786
 ```
