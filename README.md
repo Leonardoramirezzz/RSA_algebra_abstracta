@@ -26,24 +26,16 @@ Hallamos d, que es el inverso de (e, φ(n)).
 
 ```c++
 unsigned long long RSA_KEY_GENERATOR(int k, unsigned long long& e, unsigned long long& d) {
-    //genera primos aleatorios
     unsigned long long p = RANDOMGEN_PRIMOS(k / 2);
     unsigned long long q = RANDOMGEN_PRIMOS(k / 2);
-    //por si son iguales se vuelve a generar q
-    while (p == q) {
-        q = RANDOMGEN_PRIMOS(k / 2);
-    }
-    //se calcula n 
+    while (p == q) q = RANDOMGEN_PRIMOS(k / 2);
+
     unsigned long long n = p * q;
-    //calculamos  φ(n)= φ(p)*φ(q)=(p-1)*(q-1)
     unsigned long long φn = (p - 1) * (q - 1);
     int x, y;
-    //hallamos Generar aleatoriamente e ∈ [2, n − 1], tal que gcd(e, φ(n)) = 1 (con euclides de (e,φn)
+    
     e = 2 + rand() % φn - 1;
-    while (EuclidesExtendido(e, φn, x, y) != 1) {
-        e = 2 + rand() % φn - 1;
-    }
-    //hallamos d q es el inverso de (e, φn)
+    while (EuclidesExtendido(e, φn, x, y) != 1) e = 2 + rand() % φn - 1;
     d = inverso(e, φn);
     return n;
 }
