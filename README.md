@@ -46,7 +46,16 @@ unsigned long long RSA_KEY_GENERATOR(int k, unsigned long long& e, unsigned long
     //hallamos d q es el inverso de (e, φn)
     d = inverso(e, φn);
     return n;
+}
 
+unsigned long long cifrar(unsigned long long m, unsigned long long e, unsigned long long n) {
+    unsigned long long c = EXPMOD(m, e, n);
+    return c;
+}
+
+unsigned long long descifrar(unsigned long long c, unsigned long long d, unsigned long long n) {
+    unsigned long long m = EXPMOD(c, d, n);
+    return m;
 }
 ```
 ```bash
