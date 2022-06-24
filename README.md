@@ -2,9 +2,11 @@
 
 **Integrantes**
 
-| Leonardo Alonso Ramirez Quiroz |
-| Diego Enrique Zegarra Zenteno |
-| Rodrigo del Piero Melendez Flores |
+Leonardo Alonso Ramirez Quiroz
+
+Diego Enrique Zegarra Zenteno
+
+Rodrigo del Piero Melendez Flores
 
 
 <br>
